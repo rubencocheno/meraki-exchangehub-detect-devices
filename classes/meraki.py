@@ -1,5 +1,4 @@
 from .api import Api
-from .database import Database
 import json, requests
 
 class Meraki:
