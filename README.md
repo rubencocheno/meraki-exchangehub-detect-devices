@@ -1,8 +1,3 @@
-# Requirements
-- Requests (install at https://pypi.org/project/requests/)
-- Meraki Dashboard API Key (Instructions on obtaining: https://documentation.meraki.com/zGeneral_Administration/Other_Topics/The_Cisco_Meraki_Dashboard_API)
-- Webex Teams Bot and Room ID (bot creatable at https://developer.webex.com/, API documentation for obtaining a Webex Teams Room ID at https://developer.webex.com/docs/api/v1/rooms/list-rooms)
-
 # Setup + Installation
     1. Download repository and move to desired directory
     2. Run `pip install -r requirements.txt` to install any potentially missing packages
