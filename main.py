@@ -60,7 +60,10 @@ def main():
     # If after the first iteration, a new device is detected, a message will be sent to the Webex Teams bot in the room supplied alerting of the new device
     # then, the script will wait for 5 minutes before checking again 
 
+    print('Welcome to the PXOSYS Network Monitor! The script will scan your networks periodically for new devices and if any are detected, message your Webex Teams channel!')
+
     while running:
+        print('scanning')
         newDevice = {}
         orgs = meraki.getOrganisations()["data"]
         if len(orgs):
@@ -79,6 +82,7 @@ def main():
                                     storage[device["mac"]] = device
                                 else:
                                     storage[device["mac"]] = device
+                                print('found new device ' + device["mac"])
                             else:
                                 pass
             notifyNew = True
@@ -104,7 +108,7 @@ def main():
             if message:
                 message += '\n'
                 webex.sendMessage(message)
-            time.sleep(300)
+            time.sleep(30)
         else:
             print('No organisations found')
             running = False
