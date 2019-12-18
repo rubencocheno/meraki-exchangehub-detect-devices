@@ -72,7 +72,6 @@ def main():
                 if len(networks):
                     for network in networks:
                         time.sleep(1)
-                        message = ''
                         for device in meraki.getDevices(network)["data"]:
                             if device["mac"] not in storage:
                                 if notifyNew:
@@ -86,6 +85,7 @@ def main():
                             else:
                                 pass
             notifyNew = True
+            message = ''
             for key in newDevice:
                 if key == 'firewall':
                     message += '**New Firewall(s) added:** \n'
@@ -104,9 +104,10 @@ def main():
 
                 for device in newDevice[key]:
                     message += '- **Serial:** ' + str(device["serial"]) + ' **Address:** ' + str(device["lanIp"]) + '\n'
-                message += '\n'
+                message += '\n' 
             if message:
                 message += '\n'
+                print('sending message')
                 webex.sendMessage(message)
             time.sleep(30)
         else:
