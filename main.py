@@ -8,6 +8,7 @@ def main():
     parser.add_argument('--botToken', required=False, help='Bot Token generated from https://developer.webex.com/.')
     parser.add_argument('--botRoom', required=False, help='The Room ID, gathered using the Webex Teams API. For more information, go to https://developer.webex.com/docs/api/v1/rooms/list-rooms.')
     parser.add_argument('--credentialsFile', required=False, help='JSON file with the API Key, Bot Token or Room you wish the bot to post in as the keys. Keys must be the same as the arguments.')
+    parser.add_argument('--debug', required=False, help='Send a message for the initial round of detection', action="store_true")
 
     args = parser.parse_args()
 
@@ -54,6 +55,9 @@ def main():
 
     notifyNew = False
     running = True
+
+    if args.debug:
+        notifyNew = True
 
     # Iterates through all the organisations, then networks, then devices the user has access to and stores them in the storage variable as a dict,
     # with the MAC address of the device as the key to ensure uniqueness

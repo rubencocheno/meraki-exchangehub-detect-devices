@@ -12,6 +12,8 @@
     2. run "docker image build . -t pxosysdetect" to build your image
     3. run "docker container run --publish -detatch --name pd pxosysdetect:latest"
 
+    Optional: 
+    Adding the --debug argument will cause the program to send out a message on the initial run, listing every device found as if they had just been added.
 
 
 
