@@ -10,7 +10,7 @@
     IF USING DOCKER:
     1. insert your credentials into the credentials.json
     2. run "docker image build . -t pxosysdetect" to build your image
-    3. run "docker container run --publish -detatch --name pd pxosysdetect:latest"
+    3. run "docker container run --publish 8000:8080 -detatch --name pd pxosysdetect:latest"
 
     Optional: 
     Adding the --debug argument will cause the program to send out a message on the initial run, listing every device found as if they had just been added.
