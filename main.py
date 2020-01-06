@@ -63,8 +63,9 @@ def main():
     # with the MAC address of the device as the key to ensure uniqueness
     # If after the first iteration, a new device is detected, a message will be sent to the Webex Teams bot in the room supplied alerting of the new device
     # then, the script will wait for 5 minutes before checking again 
-
-    print('Welcome to the PXOSYS Network Monitor! The script will scan your networks periodically for new devices and if any are detected, message your Webex Teams channel!')
+    message = 'Welcome to the PXOSYS Network Monitor! The script will scan your networks periodically for new devices and if any are detected, message your Webex Teams channel!'
+    webex.sendMessage(message)
+    print(message)
 
     while running:
         print('scanning')
